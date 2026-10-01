@@ -1,8 +1,10 @@
 local Players=game:GetService("Players")
 local player=Players.LocalPlayer
+
 local gui=Instance.new("ScreenGui")
 gui.Name="DanzzyMenu"
 gui.ResetOnSpawn=false
+gui.IgnoreGuiInset=true
 gui.Parent=player:WaitForChild("PlayerGui")
 
 local frame=Instance.new("Frame")
@@ -18,12 +20,3 @@ title.Text="DANZZY MENU"
 title.TextColor3=Color3.new(1,1,1)
 title.TextScaled=true
 title.Parent=frame
-
-local button=Instance.new("TextButton")
-button.Size=UDim2.new(0,200,0,45)
-button.Position=UDim2.new(.5,-100,0,65)
-button.Text="TEST MENU"
-button.TextScaled=true
-button.Parent=frame
-
-print("DANZZY MENU BERHASIL DIMUAT")
