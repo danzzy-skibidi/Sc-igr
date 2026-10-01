@@ -1,1 +1,527 @@
-local v0="https://gist.github.com/danzzy-skibidi/daa67d5177ba6aeeff9eeeb270000248";local v1,v2=pcall(function() return game:HttpGet(v0);end);if ( not v1 or  not v2) then game:GetService("StarterGui"):SetCore("SendNotification",{Title="Koneksi Gagal!",Text="Gagal terhubung ke server verifikasi Key.",Duration=5});return;end local v3=tostring(getgenv().Key or "" );v3=string.gsub(v3,"%s+","");local v4=false;if ((v3~="") and (v3~="nil")) then for v371 in string.gmatch(v2,"[^\r\n]+") do if (string.gsub(v371,"%s+","")==v3) then v4=true;break;end end end local v5=game:GetService("Players");local v6=v5.LocalPlayer;local v7=game:GetService("CoreGui") or v6:WaitForChild("PlayerGui") ;local v8=game:GetService("RunService");local v9=game:GetService("UserInputService");local v10=game:GetService("Lighting");local v11=game:GetService("VirtualUser");local v12=game:GetService("RbxAnalyticsService");local v13="HUELF42-PREMIUM-3HARI";local v14="https://whatsapp.com/channel/0029VbDTezM23n3m17uBDE2j";local v15="H42_GlobalKey_Save.txt";local v16=259200;local v17=14400;local v18=v12:GetClientId();local v19=false;local v20=false;local v21=1.5;local v22=6;local v23=true;local v24=16;local v25=false;local v26=false;if v7:FindFirstChild("H42_CustomSystem") then v7:FindFirstChild("H42_CustomSystem"):Destroy();end local v27=Instance.new("ScreenGui");v27.Name="H42_CustomSystem";v27.Parent=v7;v27.ResetOnSpawn=false;local function v31(v235,v236) local v237=Instance.new("UICorner");v237.CornerRadius=UDim.new(0,v236 or 6 );v237.Parent=v235;return v237;end local function v32(v240,v241,v242) local v243=Instance.new("UIStroke");v243.Color=v241 or Color3.fromRGB(60,60,80) ;v243.Thickness=v242 or 1 ;v243.Parent=v240;return v243;end local v33=Instance.new("TextButton");local v34=Instance.new("Frame");local v35=Instance.new("Frame");local v36=Instance.new("Frame");v36.Name="KeySystemFrame";v36.Parent=v27;v36.BackgroundColor3=Color3.fromRGB(22,22,28);v36.Position=UDim2.new(0.5, -160,0.4, -90);v36.Size=UDim2.new(0,320,0,180);v36.Active=true;v36.Draggable=true;v31(v36,10);v32(v36,Color3.fromRGB(70,70,100),1.5);local v44=Instance.new("Frame");v44.Parent=v36;v44.Size=UDim2.new(1,0,0,32);v44.BackgroundColor3=Color3.fromRGB(30,30,40);v31(v44,10);local v48=Instance.new("TextLabel");v48.Parent=v44;v48.Size=UDim2.new(1, -10,1,0);v48.Position=UDim2.new(0,10,0,0);v48.BackgroundTransparency=1;v48.Text="H42 System - Key Verification";v48.TextColor3=Color3.fromRGB(255,255,255);v48.TextSize=13;v48.Font=Enum.Font.SourceSansBold;v48.TextXAlignment=Enum.TextXAlignment.Left;local v60=Instance.new("TextBox");v60.Parent=v36;v60.Position=UDim2.new(0.08,0,0.28,0);v60.Size=UDim2.new(0.84,0,0,32);v60.BackgroundColor3=Color3.fromRGB(15,15,20);v60.Text="";v60.PlaceholderText="Masukkan Key Di Sini...";v60.PlaceholderColor3=Color3.fromRGB(120,120,140);v60.TextColor3=Color3.fromRGB(255,255,255);v60.TextSize=12;v60.Font=Enum.Font.SourceSans;v31(v60,6);v32(v60,Color3.fromRGB(50,50,70),1);local v72=Instance.new("TextLabel");v72.Parent=v36;v72.Position=UDim2.new(0.08,0,0.5,0);v72.Size=UDim2.new(0.84,0,0,20);v72.BackgroundTransparency=1;v72.Text="Masukkan Key dari Server Gist Anda.";v72.TextColor3=Color3.fromRGB(180,180,180);v72.TextSize=10;v72.Font=Enum.Font.SourceSans;local v81=Instance.new("TextButton");v81.Parent=v36;v81.Position=UDim2.new(0.08,0,0.66,0);v81.Size=UDim2.new(0.4,0,0,30);v81.BackgroundColor3=Color3.fromRGB(50,140,60);v81.Text="Submit Key";v81.TextColor3=Color3.fromRGB(255,255,255);v81.TextSize=11;v81.Font=Enum.Font.SourceSansBold;v31(v81,6);local v90=Instance.new("TextButton");v90.Parent=v36;v90.Position=UDim2.new(0.52,0,0.66,0);v90.Size=UDim2.new(0.4,0,0,30);v90.BackgroundColor3=Color3.fromRGB(60,80,140);v90.Text="Get Key (Copy)";v90.TextColor3=Color3.fromRGB(255,255,255);v90.TextSize=11;v90.Font=Enum.Font.SourceSansBold;v31(v90,6);local v99=Instance.new("TextLabel");v99.Parent=v36;v99.Position=UDim2.new(0,0,0.86,0);v99.Size=UDim2.new(1,0,0,20);v99.BackgroundTransparency=1;v99.Text="Developed by HUELF 42";v99.TextColor3=Color3.fromRGB(100,100,130);v99.TextSize=10;v99.Font=Enum.Font.SourceSansItalic;local function v109() v36:Destroy();v33.Visible=true;v35.Visible=true;v34.Visible=true;end local function v110(v250,v251,v252) if writefile then local v372=string.format("%s|%d|%s",v250,v251,v252);writefile(v15,v372);end end if v4 then if (v3==v13) then v19=true;end game:GetService("StarterGui"):SetCore("SendNotification",{Title="Akses Diterima!",Text="Selamat datang di H42 System!",Duration=5});v109();end v81.MouseButton1Click:Connect(function() local v253=v60.Text;v253=string.gsub(v253,"%s+","");if (v253=="") then v72.Text="Masukkan Key terlebih dahulu!";v72.TextColor3=Color3.fromRGB(220,80,80);return;end local v254=false;for v365 in string.gmatch(v2,"[^\r\n]+") do if (string.gsub(v365,"%s+","")==v253) then v254=true;break;end end if  not v254 then v72.Text="Key Salah / Tidak Terdaftar di Server!";v72.TextColor3=Color3.fromRGB(220,80,80);return;end if (v253==v13) then local v377=os.time() + v16 ;v19=true;v110(v13,v377,v18);v72.Text="Key Premium Aktif!";v72.TextColor3=Color3.fromRGB(255,215,0);task.wait(0.8);v109();return;end local v255=os.time() + v17 ;v19=false;v110(v253,v255,v18);v72.Text="Akses Diterima!";v72.TextColor3=Color3.fromRGB(80,220,100);task.wait(0.8);v109();end);v90.MouseButton1Click:Connect(function() if setclipboard then setclipboard(v14);v72.Text="Link Saluran WA disalin ke clipboard!";v72.TextColor3=Color3.fromRGB(100,180,255);else v72.Text="Executor tidak support setclipboard.";v72.TextColor3=Color3.fromRGB(220,150,80);end end);v33.Name="H42_ShowButton";v33.Parent=v27;v33.Size=UDim2.new(0,110,0,32);v33.Position=UDim2.new(0.45,0,0.02,0);v33.BackgroundColor3=Color3.fromRGB(25,25,35);v33.Text="H42 MENU";v33.TextColor3=Color3.fromRGB(255,255,255);v33.TextSize=13;v33.Font=Enum.Font.SourceSansBold;v33.Active=true;v33.Draggable=true;v33.Visible=false;v31(v33,16);v32(v33,Color3.fromRGB(80,80,120),1.5);v34.Name="MiniController";v34.Parent=v27;v34.BackgroundColor3=Color3.fromRGB(30,30,38);v34.Position=UDim2.new(0.05,0,0.25,0);v34.Size=UDim2.new(0,180,0,100);v34.Active=true;v34.Draggable=true;v34.Visible=false;v31(v34,8);v32(v34,Color3.fromRGB(60,60,80),1);local v131=Instance.new("TextLabel");v131.Parent=v34;v131.Size=UDim2.new(1, -25,0,25);v131.BackgroundColor3=Color3.fromRGB(45,45,55);v131.Text="  AUTO FARM BREWOG";v131.TextColor3=Color3.fromRGB(240,240,240);v131.TextSize=11;v131.TextXAlignment=Enum.TextXAlignment.Left;v131.Font=Enum.Font.SourceSansBold;v31(v131,8);local v140=Instance.new("TextButton");v140.Parent=v34;v140.Position=UDim2.new(1, -25,0,0);v140.Size=UDim2.new(0,25,0,25);v140.BackgroundColor3=Color3.fromRGB(200,50,50);v140.Text="X";v140.TextColor3=Color3.fromRGB(255,255,255);v140.TextSize=12;v140.Font=Enum.Font.SourceSansBold;v31(v140,8);v140.MouseButton1Click:Connect(function() v34.Visible=false;end);local v149=Instance.new("TextButton");v149.Parent=v34;v149.Position=UDim2.new(0.05,0,0.32,0);v149.Size=UDim2.new(0.9,0,0,26);v149.BackgroundColor3=Color3.fromRGB(50,100,160);v149.Text="TP KE BREWOG";v149.TextColor3=Color3.fromRGB(255,255,255);v149.TextSize=11;v149.Font=Enum.Font.SourceSansBold;v31(v149,5);local v158=Instance.new("TextButton");v158.Parent=v34;v158.Position=UDim2.new(0.05,0,0.63,0);v158.Size=UDim2.new(0.9,0,0,26);v158.BackgroundColor3=Color3.fromRGB(180,50,50);v158.Text="Auto Farm: OFF";v158.TextColor3=Color3.fromRGB(255,255,255);v158.TextSize=11;v158.Font=Enum.Font.SourceSansBold;v31(v158,5);v35.Name="MainWindow";v35.Parent=v27;v35.BackgroundColor3=Color3.fromRGB(22,22,28);v35.Position=UDim2.new(0.25,0,0.2,0);v35.Size=UDim2.new(0,420,0,280);v35.Active=true;v35.Draggable=true;v35.Visible=false;v31(v35,8);v32(v35,Color3.fromRGB(50,50,70),1);local v175=Instance.new("Frame");v175.Parent=v35;v175.Size=UDim2.new(1,0,0,30);v175.BackgroundColor3=Color3.fromRGB(30,30,40);v31(v175,8);local v179=Instance.new("TextLabel");v179.Parent=v175;v179.Size=UDim2.new(0.5,0,1,0);v179.Position=UDim2.new(0,10,0,0);v179.BackgroundTransparency=1;v179.Text="H42 1.0.0 (Custom UI)";v179.TextColor3=Color3.fromRGB(255,255,255);v179.TextSize=13;v179.Font=Enum.Font.SourceSansBold;v179.TextXAlignment=Enum.TextXAlignment.Left;local v189=Instance.new("TextLabel");v189.Parent=v175;v189.Size=UDim2.new(0,120,1,0);v189.Position=UDim2.new(1, -155,0,0);v189.BackgroundTransparency=1;v189.Text="By: HUELF 42";v189.TextColor3=Color3.fromRGB(180,180,210);v189.TextSize=12;v189.Font=Enum.Font.SourceSansBold;v189.TextXAlignment=Enum.TextXAlignment.Right;local v200=Instance.new("TextButton");v200.Parent=v175;v200.Position=UDim2.new(1, -28,0,3);v200.Size=UDim2.new(0,24,0,24);v200.BackgroundColor3=Color3.fromRGB(200,50,50);v200.Text="X";v200.TextColor3=Color3.fromRGB(255,255,255);v200.TextSize=12;v200.Font=Enum.Font.SourceSansBold;v31(v200,6);v200.MouseButton1Click:Connect(function() v35.Visible=false;end);v33.MouseButton1Click:Connect(function() v35.Visible= not v35.Visible;v34.Visible=true;end);local v209=Instance.new("Frame");v209.Parent=v35;v209.Position=UDim2.new(0,5,0,35);v209.Size=UDim2.new(0,110,1, -40);v209.BackgroundColor3=Color3.fromRGB(28,28,35);v31(v209,6);local v214=Instance.new("Frame");v214.Parent=v35;v214.Position=UDim2.new(0,120,0,35);v214.Size=UDim2.new(1, -125,1, -40);v214.BackgroundColor3=Color3.fromRGB(28,28,35);v31(v214,6);local v219={};local v220={};local function v221(v262,v263) local v264=Instance.new("TextButton");v264.Parent=v209;v264.Size=UDim2.new(1, -10,0,28);v264.Position=UDim2.new(0,5,0,( #v220 * 32) + 5 );v264.BackgroundColor3=Color3.fromRGB(40,40,52);v264.Text=v262   .. ((v263 and " [PRO]") or "") ;v264.TextColor3=(v263 and Color3.fromRGB(255,215,0)) or Color3.fromRGB(200,200,200) ;v264.TextSize=11;v264.Font=Enum.Font.SourceSansBold;v31(v264,5);local v274=Instance.new("ScrollingFrame");v274.Parent=v214;v274.Size=UDim2.new(1, -10,1, -10);v274.Position=UDim2.new(0,5,0,5);v274.BackgroundTransparency=1;v274.BorderSizePixel=0;v274.ScrollBarThickness=4;v274.Visible= #v220==0 ;local v282=Instance.new("UIListLayout");v282.Parent=v274;v282.SortOrder=Enum.SortOrder.LayoutOrder;v282.Padding=UDim.new(0,6);v282:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function() v274.CanvasSize=UDim2.new(0,0,0,v282.AbsoluteContentSize.Y + 10 );end);local v287=Instance.new("Frame");v287.Parent=v214;v287.Size=UDim2.new(1, -10,1, -10);v287.Position=UDim2.new(0,5,0,5);v287.BackgroundTransparency=1;v287.Visible=false;local v293=Instance.new("TextLabel");v293.Parent=v287;v293.Size=UDim2.new(1,0,1,0);v293.BackgroundTransparency=1;v293.Text="🔒 FITUR KHUSUS PREMIUM KEY\n\nAnda menggunakan Key Publik. Dapatkan Key Premium untuk mengakses tab ini.";v293.TextColor3=Color3.fromRGB(220,80,80);v293.TextSize=12;v293.Font=Enum.Font.SourceSansBold;v293.TextWrapped=true;v264.MouseButton1Click:Connect(function() for v384,v385 in pairs(v219) do v385.Scroll.Visible=false;v385.Locked.Visible=false;end for v388,v389 in pairs(v220) do v389.BackgroundColor3=Color3.fromRGB(40,40,52);end v264.BackgroundColor3=Color3.fromRGB(60,80,140);if (v263 and  not v19) then v287.Visible=true;else v274.Visible=true;end end);if ( #v220==0) then v264.BackgroundColor3=Color3.fromRGB(60,80,140);end table.insert(v219,{Scroll=v274,Locked=v287});table.insert(v220,v264);return v274;end local v222=v221("Auto Farm",false);local v223=v221("Fitur Player",true);local v224=v221("Teleport Place",true);local function v225(v302,v303,v304) local v305=Instance.new("TextButton");v305.Parent=v302;v305.Size=UDim2.new(1, -5,0,26);v305.BackgroundColor3=Color3.fromRGB(45,50,65);v305.Text=v303;v305.TextColor3=Color3.fromRGB(255,255,255);v305.TextSize=11;v305.Font=Enum.Font.SourceSansBold;v31(v305,5);v305.MouseButton1Click:Connect(v304);return v305;end local function v226(v314,v315,v316,v317) local v318=Instance.new("Frame");v318.Parent=v314;v318.Size=UDim2.new(1, -5,0,26);v318.BackgroundColor3=Color3.fromRGB(35,35,45);v31(v318,5);local v322=Instance.new("TextLabel");v322.Parent=v318;v322.Size=UDim2.new(0.7,0,1,0);v322.Position=UDim2.new(0,8,0,0);v322.BackgroundTransparency=1;v322.Text=v315;v322.TextColor3=Color3.fromRGB(220,220,220);v322.TextSize=11;v322.TextXAlignment=Enum.TextXAlignment.Left;v322.Font=Enum.Font.SourceSans;local v334=Instance.new("TextButton");v334.Parent=v318;v334.Position=UDim2.new(1, -45,0.15,0);v334.Size=UDim2.new(0,40,0,18);v334.Text=(v316 and "ON") or "OFF" ;v334.BackgroundColor3=(v316 and Color3.fromRGB(40,160,60)) or Color3.fromRGB(180,50,50) ;v334.TextColor3=Color3.fromRGB(255,255,255);v334.TextSize=10;v334.Font=Enum.Font.SourceSansBold;v31(v334,4);local v344=v316;local function v345(v368) v344=v368;v334.Text=(v344 and "ON") or "OFF" ;v334.BackgroundColor3=(v344 and Color3.fromRGB(40,160,60)) or Color3.fromRGB(180,50,50) ;v317(v344);end v334.MouseButton1Click:Connect(function() v345( not v344);end);return {Set=v345};end local function v227() if (v6.Character and v6.Character:FindFirstChild("HumanoidRootPart")) then v6.Character.HumanoidRootPart.CFrame=CFrame.new(3994.2,23.1, -408.73);end end v149.MouseButton1Click:Connect(v227);local v228;local function v229(v346) v20=v346;if v20 then v158.Text="Auto Farm: ON";v158.BackgroundColor3=Color3.fromRGB(40,160,60);else v158.Text="Auto Farm: OFF";v158.BackgroundColor3=Color3.fromRGB(180,50,50);end end v158.MouseButton1Click:Connect(function() v229( not v20);if v228 then v228.Set(v20);end end);v225(v222,"Buka Mini Controller",function() v34.Visible=true;end);v225(v222,"TP KE BREWOG",v227);v228=v226(v222,"Otomatis Kerja (Auto Farm)",false,function(v348) v229(v348);end);v226(v222,"Anti-AFK (Anti Disconnect)",true,function(v349) v23=v349;end);local v230={Brightness=v10.Brightness,ClockTime=v10.ClockTime,FogEnd=v10.FogEnd,GlobalShadows=v10.GlobalShadows,Ambient=v10.Ambient};local v231;v226(v223,"Fullbright (Terang)",false,function(v350) v26=v350;if v26 then v231=v10.Changed:Connect(function() if v26 then v10.Brightness=2;v10.ClockTime=14;v10.FogEnd=100000;v10.GlobalShadows=false;v10.Ambient=Color3.fromRGB(255,255,255);end end);v10.Brightness=2;v10.ClockTime=14;v10.FogEnd=100000;v10.GlobalShadows=false;v10.Ambient=Color3.fromRGB(255,255,255);else if v231 then v231:Disconnect();end v10.Brightness=v230.Brightness;v10.ClockTime=v230.ClockTime;v10.FogEnd=v230.FogEnd;v10.GlobalShadows=v230.GlobalShadows;v10.Ambient=v230.Ambient;end end);v226(v223,"Infinite Jump",false,function(v351) v25=v351;end);v225(v223,"Set Speed Normal (16)",function() v24=16;end);v225(v223,"Set Speed Cepat (50)",function() v24=50;end);v225(v223,"Set Speed Sangat Cepat (100)",function() v24=100;end);v8.Stepped:Connect(function() if (v6.Character and v6.Character:FindFirstChildOfClass("Humanoid")) then local v412=v6.Character:FindFirstChildOfClass("Humanoid");if ((v24~=16) and (v412.WalkSpeed~=v24)) then v412.WalkSpeed=v24;end end end);v9.JumpRequest:Connect(function() if (v25 and v6.Character and v6.Character:FindFirstChildOfClass("Humanoid")) then v6.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping");end end);local function v232(v352) if (v6.Character and v6.Character:FindFirstChild("HumanoidRootPart")) then v6.Character.HumanoidRootPart.CFrame=v352;end end v225(v224,"ELEKTRONIK",function() v232(CFrame.new(4064.47,22.94, -1486.78));end);v225(v224,"WIJAYA",function() v232(CFrame.new(2318.89,23.17,179.07));end);v225(v224,"BOFAGO",function() v232(CFrame.new(4023.53,23.23, -1138.58));end);v225(v224,"SENGOX",function() v232(CFrame.new(2525.67,24.04,615.53));end);v225(v224,"NGX",function() v232(CFrame.new(3206.02,23.4,477.11));end);v225(v224,"HPRO",function() v232(CFrame.new(4017.01,22.93,314.77));end);v6.Idled:Connect(function() if v23 then v11:CaptureController();v11:ClickButton2(Vector2.new());end end);local function v233(v353,v354) if ( not v6.Character or  not v6.Character:FindFirstChild("Humanoid")) then return;end local v355=v6.Character.Humanoid;v355:MoveTo(v353);local v356=tick();while (tick() -v356)<(v354 or 1.2)  do if  not v20 then break;end if ((v6.Character.HumanoidRootPart.Position-v353).Magnitude<1.5) then break;end task.wait(0.1);end end local function v234(v357,v358) if  not v20 then return false;end if ( not v6.Character or  not v6.Character:FindFirstChild("HumanoidRootPart")) then return false;end local v359=v6.Character.HumanoidRootPart;v359.CFrame=CFrame.new(v357);task.wait(0.15);if (v358 and v20) then local v414=(v359.CFrame * CFrame.new(0,0, -v22)).Position;v233(v414,1);if  not v20 then return false;end local v415=(v359.CFrame * CFrame.new(0,0,v22)).Position;v233(v415,1);if  not v20 then return false;end v233(v357,0.8);end task.wait(v21);return true;end task.spawn(function() local v361=Vector3.new(4026.41,23.33, -415.59);local v362=Vector3.new(4005.23,23.31, -364.45);local v363=Vector3.new(4028.46,23.31, -368.54);local v364=Vector3.new(4020.16,35.94, -365.68);while true do task.wait(0.3);if v20 then pcall(function() v234(v361,false);for v424=1,5 do if  not v20 then break;end v234(v362,true);v234(v363,true);end for v425=1,5 do if  not v20 then break;end v234(v362,true);v234(v364,true);end v234(v361,false);end);end end end);
+--========================================================
+--              AUTO LOOP PATH SYSTEM
+--========================================================
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local player = Players.LocalPlayer
+
+--========================================================
+-- SETTINGS
+--========================================================
+
+local recording = false
+local playing = false
+
+local path = {}
+local currentPoint = 1
+local direction = 1
+
+-- 1ARAH / BOLAKBALIK
+local mode = "1ARAH"
+
+--========================================================
+-- PATH FOLDER
+--========================================================
+
+local folder = Instance.new("Folder")
+folder.Name = "SavedPath"
+folder.Parent = workspace
+
+--========================================================
+-- GUI
+--========================================================
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "AutoLoopGUI"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+--========================================================
+-- MAIN FRAME
+--========================================================
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0,220,0,290)
+frame.Position = UDim2.new(0,20,0.5,-145)
+frame.BackgroundColor3 = Color3.fromRGB(20,20,25)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Parent = gui
+
+--========================================================
+-- TITLE
+--========================================================
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0,35)
+title.BackgroundTransparency = 1
+title.Text = "AUTO LOOP PATH"
+title.TextColor3 = Color3.new(1,1,1)
+title.TextSize = 18
+title.Font = Enum.Font.GothamBold
+title.Parent = frame
+
+--========================================================
+-- BUTTON FUNCTION
+--========================================================
+
+local function createButton(text,y)
+
+    local b = Instance.new("TextButton")
+
+    b.Size = UDim2.new(1,-20,0,35)
+    b.Position = UDim2.new(0,10,0,y)
+
+    b.Text = text
+    b.TextColor3 = Color3.new(1,1,1)
+    b.TextSize = 14
+    b.Font = Enum.Font.GothamBold
+
+    b.BackgroundColor3 = Color3.fromRGB(45,45,55)
+    b.BorderSizePixel = 0
+
+    b.Parent = frame
+
+    return b
+end
+
+--========================================================
+-- BUTTONS
+--========================================================
+
+local recordBtn = createButton("REKAM JALUR",40)
+local modeBtn = createButton("MODE: 1 ARAH",80)
+local playBtn = createButton("JALANKAN LOOP",120)
+local stopBtn = createButton("STOP",160)
+local continueBtn = createButton("LANJUT",200)
+local clearBtn = createButton("HAPUS JALUR",240)
+
+--========================================================
+-- HIDE BUTTON
+--========================================================
+
+local hideBtn = Instance.new("TextButton")
+
+hideBtn.Size = UDim2.new(0,80,0,35)
+hideBtn.Position = UDim2.new(0,20,0.5,-180)
+
+hideBtn.Text = "HIDE"
+hideBtn.TextColor3 = Color3.new(1,1,1)
+hideBtn.TextSize = 14
+hideBtn.Font = Enum.Font.GothamBold
+
+hideBtn.BackgroundColor3 = Color3.fromRGB(45,45,55)
+hideBtn.BorderSizePixel = 0
+
+hideBtn.Parent = gui
+
+--========================================================
+-- DRAG MENU
+--========================================================
+
+local dragging = false
+local dragStart
+local startPos
+
+frame.InputBegan:Connect(function(input)
+
+    if input.UserInputType == Enum.UserInputType.MouseButton1
+    or input.UserInputType == Enum.UserInputType.Touch then
+
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+
+        input.Changed:Connect(function()
+
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+
+        end)
+
+    end
+
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+
+    if not dragging then
+        return
+    end
+
+    if input.UserInputType == Enum.UserInputType.MouseMovement
+    or input.UserInputType == Enum.UserInputType.Touch then
+
+        local delta = input.Position - dragStart
+
+        frame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+
+    end
+
+end)
+
+--========================================================
+-- HIDE / SHOW
+--========================================================
+
+local showBtn
+
+hideBtn.MouseButton1Click:Connect(function()
+
+    frame.Visible = false
+    hideBtn.Visible = false
+
+    showBtn = Instance.new("TextButton")
+
+    showBtn.Size = UDim2.new(0,80,0,35)
+    showBtn.Position = UDim2.new(0,20,0.5,-180)
+
+    showBtn.Text = "SHOW"
+    showBtn.TextColor3 = Color3.new(1,1,1)
+    showBtn.TextSize = 14
+    showBtn.Font = Enum.Font.GothamBold
+
+    showBtn.BackgroundColor3 = Color3.fromRGB(45,45,55)
+    showBtn.BorderSizePixel = 0
+
+    showBtn.Parent = gui
+
+    showBtn.MouseButton1Click:Connect(function()
+
+        frame.Visible = true
+        hideBtn.Visible = true
+
+        showBtn:Destroy()
+        showBtn = nil
+
+    end)
+
+end)
+
+--========================================================
+-- BUAT GARIS JALUR
+--========================================================
+
+local function makeLine(a,b)
+
+    local distance = (b-a).Magnitude
+
+    local line = Instance.new("Part")
+
+    line.Name = "PathLine"
+
+    line.Anchored = true
+    line.CanCollide = false
+    line.CanTouch = false
+    line.CanQuery = false
+
+    line.Material = Enum.Material.Neon
+    line.Color = Color3.fromRGB(0,170,255)
+
+    line.Size = Vector3.new(
+        0.15,
+        0.15,
+        distance
+    )
+
+    line.CFrame = CFrame.lookAt(
+        (a+b)/2,
+        b
+    )
+
+    line.Parent = folder
+
+end
+
+--========================================================
+-- REKAM POSISI
+--========================================================
+
+RunService.Heartbeat:Connect(function()
+
+    if not recording then
+        return
+    end
+
+    local character = player.Character
+
+    if not character then
+        return
+    end
+
+    local root =
+        character:FindFirstChild("HumanoidRootPart")
+
+    if not root then
+        return
+    end
+
+    local position = root.Position
+
+    -- Titik pertama
+    if #path == 0 then
+
+        table.insert(path,position)
+
+    -- Titik berikutnya setiap 2 studs
+    elseif (position - path[#path]).Magnitude >= 2 then
+
+        makeLine(
+            path[#path],
+            position
+        )
+
+        table.insert(path,position)
+
+    end
+
+end)
+
+--========================================================
+-- REKAM
+--========================================================
+
+recordBtn.MouseButton1Click:Connect(function()
+
+    recording = not recording
+
+    if recording then
+
+        recordBtn.Text = "⏺ SEDANG REKAM"
+
+    else
+
+        recordBtn.Text = "REKAM JALUR"
+
+    end
+
+end)
+
+--========================================================
+-- GANTI MODE
+--========================================================
+
+modeBtn.MouseButton1Click:Connect(function()
+
+    if mode == "1ARAH" then
+
+        mode = "BOLAKBALIK"
+
+        modeBtn.Text = "MODE: BOLAK-BALIK"
+
+    else
+
+        mode = "1ARAH"
+
+        modeBtn.Text = "MODE: 1 ARAH"
+
+    end
+
+end)
+
+--========================================================
+-- JALANKAN PATH
+--========================================================
+
+local function playPath()
+
+    if #path < 2 then
+        return
+    end
+
+    local character = player.Character
+
+    if not character then
+        return
+    end
+
+    local humanoid =
+        character:FindFirstChildOfClass("Humanoid")
+
+    local root =
+        character:FindFirstChild("HumanoidRootPart")
+
+    if not humanoid or not root then
+        return
+    end
+
+    while playing do
+
+        if currentPoint < 1 then
+            currentPoint = 1
+        end
+
+        if currentPoint > #path then
+            currentPoint = #path
+        end
+
+        local target = path[currentPoint]
+
+        humanoid:MoveTo(target)
+
+        repeat
+
+            task.wait(0.05)
+
+            if not playing then
+                return
+            end
+
+            character = player.Character
+
+            if not character then
+                return
+            end
+
+            root =
+                character:FindFirstChild("HumanoidRootPart")
+
+            if not root then
+                return
+            end
+
+        until (root.Position - target).Magnitude < 3
+
+        --================================================
+        -- 1 ARAH
+        --================================================
+
+        if mode == "1ARAH" then
+
+            currentPoint += 1
+
+            if currentPoint > #path then
+
+                currentPoint = 1
+
+            end
+
+        --================================================
+        -- BOLAK-BALIK
+        --================================================
+
+        elseif mode == "BOLAKBALIK" then
+
+            currentPoint += direction
+
+            if currentPoint >= #path then
+
+                currentPoint = #path
+                direction = -1
+
+            elseif currentPoint <= 1 then
+
+                currentPoint = 1
+                direction = 1
+
+            end
+
+        end
+
+    end
+
+end
+
+--========================================================
+-- JALANKAN LOOP
+--========================================================
+
+playBtn.MouseButton1Click:Connect(function()
+
+    if #path < 2 then
+
+        playBtn.Text = "JALUR KOSONG"
+
+        task.wait(1)
+
+        playBtn.Text = "JALANKAN LOOP"
+
+        return
+    end
+
+    if playing then
+        return
+    end
+
+    playing = true
+
+    playBtn.Text = "LOOP BERJALAN"
+
+    task.spawn(playPath)
+
+end)
+
+--========================================================
+-- STOP
+--========================================================
+
+stopBtn.MouseButton1Click:Connect(function()
+
+    playing = false
+
+    stopBtn.Text = "STOPPED"
+
+    task.wait(0.7)
+
+    stopBtn.Text = "STOP"
+
+end)
+
+--========================================================
+-- LANJUT
+--========================================================
+
+continueBtn.MouseButton1Click:Connect(function()
+
+    if playing then
+        return
+    end
+
+    if #path < 2 then
+        return
+    end
+
+    playing = true
+
+    continueBtn.Text = "MELANJUTKAN..."
+
+    task.spawn(playPath)
+
+    task.wait(0.7)
+
+    continueBtn.Text = "LANJUT"
+
+end)
+
+--========================================================
+-- HAPUS JALUR
+--========================================================
+
+clearBtn.MouseButton1Click:Connect(function()
+
+    recording = false
+    playing = false
+
+    path = {}
+
+    currentPoint = 1
+    direction = 1
+
+    for _,object in ipairs(folder:GetChildren()) do
+        object:Destroy()
+    end
+
+    recordBtn.Text = "REKAM JALUR"
+    playBtn.Text = "JALANKAN LOOP"
+
+end)
